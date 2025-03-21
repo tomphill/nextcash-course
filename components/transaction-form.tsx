@@ -69,8 +69,9 @@ export default function TransactionForm({
     },
   });
 
+  const transactionType = form.watch("transactionType");
   const filteredCategories = categories.filter(
-    (category) => category.type === form.getValues("transactionType")
+    (category) => category.type === transactionType
   );
 
   return (
@@ -78,7 +79,7 @@ export default function TransactionForm({
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <fieldset
           disabled={form.formState.isSubmitting}
-          className="grid grid-cols-2 gap-y-5 gap-x-2"
+          className="grid grid-cols-2 gap-y-5 gap-x-2 items-start"
         >
           <FormField
             control={form.control}
